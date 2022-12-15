@@ -86,3 +86,4 @@ E:\LibrarySystemAPI\LibrarySystemAPI\obj\Debug\LibrarySystemAPI.csproj.CoreCompi
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Debug\LibrarySystemAPI.csproj.CopyComplete
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Debug\LibrarySystemAPI.dll
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Debug\LibrarySystemAPI.pdb
+E:\LibrarySystemAPI\LibrarySystemAPI\obj\Debug\LibrarySystemAPI.csproj.AssemblyReference.cache

@@ -86,3 +86,4 @@ E:\LibrarySystemAPI\LibrarySystemAPI\obj\Release\LibrarySystemAPI.csproj.CoreCom
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Release\LibrarySystemAPI.csproj.CopyComplete
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Release\LibrarySystemAPI.dll
 E:\LibrarySystemAPI\LibrarySystemAPI\obj\Release\LibrarySystemAPI.pdb
+E:\LibrarySystemAPI\LibrarySystemAPI\obj\Release\LibrarySystemAPI.csproj.AssemblyReference.cache

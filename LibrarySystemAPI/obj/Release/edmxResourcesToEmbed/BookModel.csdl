@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibrarySystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorId" Type="Int32" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="Publication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfCopies" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Category" Relationship="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category" FromRole="Tbl_Book" ToRole="Tbl_Category" />
+    <NavigationProperty Name="Tbl_Category1" Relationship="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category1" FromRole="Tbl_Book" ToRole="Tbl_Category" />
+  </EntityType>
+  <EntityContainer Name="LibrarySystemDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Book" EntityType="Self.Tbl_Book" />
+    <FunctionImport Name="GetAllBooks" ReturnType="Collection(LibrarySystemDBModel.GetAllBooks_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ParentCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Fn_Book" EntitySet="Tbl_Book" ReturnType="Collection(LibrarySystemDBModel.Tbl_Book)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ParentCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Tbl_Category" EntityType="LibrarySystemDBModel.Tbl_Category" />
+    <AssociationSet Name="FK_Tbl_Book_Tbl_Category" Association="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category">
+      <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+      <End Role="Tbl_Book" EntitySet="Tbl_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Book_Tbl_Category1" Association="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category1">
+      <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+      <End Role="Tbl_Book" EntitySet="Tbl_Book" />
+    </AssociationSet>
+    <FunctionImport Name="GetAllParentCategory" ReturnType="Collection(LibrarySystemDBModel.GetAllParentCategory_Result)" />
+    <FunctionImport Name="GetAllSubCategoryByParentId" ReturnType="Collection(LibrarySystemDBModel.GetAllSubCategoryByParentId_Result)">
+      <Parameter Name="ParentCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Fn_Category" EntitySet="Tbl_Category" ReturnType="Collection(LibrarySystemDBModel.Tbl_Category)" />
+    <FunctionImport Name="Fn_Category2" EntitySet="Tbl_Category" ReturnType="Collection(LibrarySystemDBModel.Tbl_Category)">
+      <Parameter Name="ParentCategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetAllBooks_Result">
+    <Property Type="Int32" Name="BookId" Nullable="false" />
+    <Property Type="String" Name="BookName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="Int32" Name="SubCategoryId" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SubCategory" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Author" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Publication" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="NoOfCopies" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="Tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentCategory" Type="Int32" />
+    <NavigationProperty Name="Tbl_Book" Relationship="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Book" />
+    <NavigationProperty Name="Tbl_Book1" Relationship="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category1" FromRole="Tbl_Category" ToRole="Tbl_Book" />
+  </EntityType>
+  <Association Name="FK_Tbl_Book_Tbl_Category">
+    <End Type="LibrarySystemDBModel.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+    <End Type="LibrarySystemDBModel.Tbl_Book" Role="Tbl_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Tbl_Book">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Book_Tbl_Category1">
+    <End Type="LibrarySystemDBModel.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+    <End Type="LibrarySystemDBModel.Tbl_Book" Role="Tbl_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Tbl_Book">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetAllParentCategory_Result">
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAllSubCategoryByParentId_Result">
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

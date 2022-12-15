@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibrarySystemDBModelStoreContainer" CdmEntityContainer="LibrarySystemDB">
+    <EntitySetMapping Name="Tbl_Book">
+      <EntityTypeMapping TypeName="LibrarySystemDBModel.Tbl_Book">
+        <MappingFragment StoreEntitySet="Tbl_Book">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="Publication" ColumnName="Publication" />
+          <ScalarProperty Name="NoOfCopies" ColumnName="NoOfCopies" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllBooks" FunctionName="LibrarySystemDBModel.Store.GetAllBooks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibrarySystemDBModel.GetAllBooks_Result">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Publication" ColumnName="Publication" />
+          <ScalarProperty Name="NoOfCopies" ColumnName="NoOfCopies" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Fn_Book" FunctionName="LibrarySystemDBModel.Store.GetAllBooks" />
+    <EntitySetMapping Name="Tbl_Category">
+      <EntityTypeMapping TypeName="LibrarySystemDBModel.Tbl_Category">
+        <MappingFragment StoreEntitySet="Tbl_Category">
+          <ScalarProperty Name="ParentCategory" ColumnName="ParentCategory" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllParentCategory" FunctionName="LibrarySystemDBModel.Store.GetAllParentCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibrarySystemDBModel.GetAllParentCategory_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSubCategoryByParentId" FunctionName="LibrarySystemDBModel.Store.GetAllSubCategoryByParentId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibrarySystemDBModel.GetAllSubCategoryByParentId_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Fn_Category" FunctionName="LibrarySystemDBModel.Store.GetAllParentCategory" />
+    <FunctionImportMapping FunctionImportName="Fn_Category2" FunctionName="LibrarySystemDBModel.Store.GetAllSubCategoryByParentId" />
+  </EntityContainerMapping>
+</Mapping>

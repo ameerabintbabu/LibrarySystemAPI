@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b616373d7a5463fb953266a8e82531e" Name="Diagram1">
+        <EntityTypeShape EntityType="LibrarySystemDBModel.Tbl_Book" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemDBModel.Tbl_Category" Width="1.5" PointX="0.75" PointY="5.25" />
+        <AssociationConnector Association="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category" />
+        <AssociationConnector Association="LibrarySystemDBModel.FK_Tbl_Book_Tbl_Category1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,5 +1,0 @@
-E:\LibrarySystemAPI\Book\bin\Release\Book.dll
-E:\LibrarySystemAPI\Book\bin\Release\Book.pdb
-E:\LibrarySystemAPI\Book\obj\Release\Book.csproj.CoreCompileInputs.cache
-E:\LibrarySystemAPI\Book\obj\Release\Book.dll
-E:\LibrarySystemAPI\Book\obj\Release\Book.pdb
